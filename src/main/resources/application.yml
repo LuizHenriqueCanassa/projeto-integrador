@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: projeto-integrador
+  datasource:
+    url: jdbc:mysql://localhost/projeto-integrador
+    username: root
+    password: root123
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
