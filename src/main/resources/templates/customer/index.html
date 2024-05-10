@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="template/header :: head"></head>
+<body>
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <div class="container">
+        <div class="page-title">
+            <h2>Clientes</h2>
+        </div>
+
+        <div class="mt-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Documento</th>
+                        <th scope="col">Telefone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:if="${customers.empty}">
+                        <td colspan="4">Nenhum cliente cadastrado</td>
+                    </tr>
+                    <tr th:each="customer : ${customers}">
+                        <td>
+                            <span th:text="${customer.getId()}"></span>
+                        </td>
+                        <td>
+                            <span th:text="${customer.getName()}"></span>
+                        </td>
+                        <td>
+                            <span th:text="${customer.getDocument()}"></span>
+                        </td>
+                        <td>
+                            <span th:text="${customer.getMobilePhone()}"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
