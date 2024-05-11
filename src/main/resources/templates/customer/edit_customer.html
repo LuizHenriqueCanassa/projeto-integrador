@@ -12,23 +12,29 @@
             <div class="row">
                 <div class="col">
                     <input type="hidden" name="id" th:value="${customer.getId()}">
-                    <input type="text" class="form-control" placeholder="Nome" name="customerName" id="customerName" th:value="${customer.getCustomerName()}">
+                    <label for="customerName">Nome: </label>
+                    <input type="text" class="form-control" name="customerName" id="customerName" th:value="${customer.getCustomerName()}">
                 </div>
                 <div class="col">
+                    <label for="customerDocument">Documento: </label>
                     <input type="text" class="form-control" name="customerDocument" id="customerDocument" placeholder="CPF" th:value="${customer.getCustomerDocument()}">
                 </div>
                 <div class="col">
+                    <label for="customerMobilePhone">Telefone: </label>
                     <input type="text" class="form-control" name="customerMobilePhone" id="customerMobilePhone" placeholder="Celular" th:value="${customer.getCustomerMobilePhone()}">
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col">
+                    <label for="customerAddress">Endereço: </label>
                     <input type="text" class="form-control" name="customerAddress" id="customerAddress" placeholder="Endereço" th:value="${customer.getCustomerAddress()}">
                 </div>
                 <div class="col">
+                    <label for="customerAddressNumber">Numero: </label>
                     <input type="text" class="form-control" name="customerAddressNumber" id="customerAddressNumber" placeholder="Numero" th:value="${customer.getCustomerAddressNumber()}">
                 </div>
                 <div class="col">
+                    <label for="customerAddressCity">Cidade: </label>
                     <input type="text" class="form-control" name="customerAddressCity" id="customerAddressCity" placeholder="Cidade" th:value="${customer.getCustomerAddressCity()}">
                 </div>
             </div>
