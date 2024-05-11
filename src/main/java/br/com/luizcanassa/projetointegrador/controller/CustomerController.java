@@ -2,7 +2,6 @@ package br.com.luizcanassa.projetointegrador.controller;
 
 import br.com.luizcanassa.projetointegrador.domain.dto.CustomersEditDTO;
 import br.com.luizcanassa.projetointegrador.domain.dto.NewCustomerDTO;
-import br.com.luizcanassa.projetointegrador.domain.entity.CustomerEntity;
 import br.com.luizcanassa.projetointegrador.service.CustomerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

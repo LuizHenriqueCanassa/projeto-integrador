@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="template/header :: head"></head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="container">
+    <div class="page-title">
+        <h2>Produtos</h2>
+    </div>
+
+    <div class="mt-4">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Valor</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${products.empty}">
+                    <td colspan="4">Nenhum cliente cadastrado</td>
+                </tr>
+                <tr th:each="product : ${products}">
+                    <td>
+                        <span th:text="${product.getId()}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${product.getProductName()}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${product.getProductPrice()}"></span>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-warning">
+                            <a th:href="@{'/products/edit/' + ${product.getId()}}">Editar</a>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
