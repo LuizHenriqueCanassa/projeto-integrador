@@ -17,6 +17,7 @@
                         <th scope="col">Nome</th>
                         <th scope="col">Documento</th>
                         <th scope="col">Telefone</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,13 +29,18 @@
                             <span th:text="${customer.getId()}"></span>
                         </td>
                         <td>
-                            <span th:text="${customer.getName()}"></span>
+                            <span th:text="${customer.getCustomerName()}"></span>
                         </td>
                         <td>
-                            <span th:text="${customer.getDocument()}"></span>
+                            <span th:text="${customer.getCustomerDocument()}"></span>
                         </td>
                         <td>
-                            <span th:text="${customer.getMobilePhone()}"></span>
+                            <span th:text="${customer.getCustomerMobilePhone()}"></span>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning">
+                                <a th:href="@{'/customers/edit/' + ${customer.getId()}}">Editar</a>
+                            </button>
                         </td>
                     </tr>
                 </tbody>

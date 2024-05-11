@@ -11,9 +11,9 @@ public class CustomersDTO {
 
     private Long id;
 
-    private String name;
+    private String customerName;
 
-    private String document;
+    private String customerDocument;
 
-    private String mobilePhone;
+    private String customerMobilePhone;
 }
