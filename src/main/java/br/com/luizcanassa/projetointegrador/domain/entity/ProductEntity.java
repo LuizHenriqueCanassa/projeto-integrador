@@ -24,6 +24,9 @@ public class ProductEntity {
     @Column(name = "PRICE", nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
 
+    @Column(name = "DESCRIPTION", nullable = false)
+    private String description;
+
     @OneToMany(mappedBy = "product")
     private List<OrderItemEntity> orderItems;
 

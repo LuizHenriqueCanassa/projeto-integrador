@@ -35,6 +35,7 @@ public class ProductServiceImpl implements ProductService {
 
         newProduct.setProductName(productsDTO.getProductName());
         newProduct.setPrice(productsDTO.getProductPrice());
+        newProduct.setDescription(productsDTO.getProductDescription());
 
         return productRepository.save(newProduct);
     }
@@ -45,6 +46,7 @@ public class ProductServiceImpl implements ProductService {
 
         updatedProduct.setProductName(productsDTO.getProductName());
         updatedProduct.setPrice(productsDTO.getProductPrice());
+        updatedProduct.setDescription(productsDTO.getProductDescription());
 
         return productRepository.save(updatedProduct);
     }
@@ -53,7 +55,8 @@ public class ProductServiceImpl implements ProductService {
         return new ProductsDTO(
                 productEntity.getId(),
                 productEntity.getProductName(),
-                productEntity.getPrice()
+                productEntity.getPrice(),
+                productEntity.getDescription()
         );
     }
 }

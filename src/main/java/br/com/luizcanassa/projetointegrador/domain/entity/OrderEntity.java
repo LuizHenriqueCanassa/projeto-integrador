@@ -27,7 +27,8 @@ public class OrderEntity {
     private BigDecimal amount;
 
     @Column(name = "STATUS", nullable = false)
-    private String status = OrderStatus.AWAITING.toString();
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status = OrderStatus.AWAITING;
 
     @OneToMany(mappedBy = "order")
     List<OrderItemEntity> orderItems;
