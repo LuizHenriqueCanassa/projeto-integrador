@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="template/header :: head"></head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="container">
+    <div class="page-title">
+        <h2>Clientes</h2>
+    </div>
+
+    <div class="mt-4">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Status</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Quantidade de Itens</th>
+                <th scope="col">Data do Pedido</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${orders.empty}">
+                <td colspan="7">Nenhum pedido cadastrado</td>
+            </tr>
+            <tr th:each="order : ${orders}">
+                <td>
+                    <span th:text="${order.getId()}"></span>
+                </td>
+                <td>
+                    <span th:text="${order.getCustomerName()}"></span>
+                </td>
+                <td>
+                    <span th:text="${order.getOrderStatus()}"></span>
+                </td>
+                <td>
+                    <span th:text="'R$ ' + ${order.getTotalPrice()}"></span>
+                </td>
+                <td>
+                    <span th:text="${order.getQuantityItems()}"></span>
+                </td>
+                <td>
+                    <span th:text="${#temporals.format(order.getOrderDate, 'dd/MM/yyyy HH:mm')}"></span>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-warning">
+                        <a th:href="@{'/orders/edit/' + ${order.getId()}}">Editar</a>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

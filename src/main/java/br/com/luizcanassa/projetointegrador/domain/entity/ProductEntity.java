@@ -27,7 +27,7 @@ public class ProductEntity {
     @Column(name = "DESCRIPTION", nullable = false)
     private String description;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItemEntity> orderItems;
 
     @CreationTimestamp

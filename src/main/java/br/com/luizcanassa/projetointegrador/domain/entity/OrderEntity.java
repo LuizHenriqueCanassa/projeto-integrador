@@ -4,7 +4,6 @@ import br.com.luizcanassa.projetointegrador.domain.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -30,8 +29,8 @@ public class OrderEntity {
     @Enumerated(EnumType.STRING)
     private OrderStatus status = OrderStatus.AWAITING;
 
-    @OneToMany(mappedBy = "order")
-    List<OrderItemEntity> orderItems;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<OrderItemEntity> orderItems;
 
     @CreationTimestamp
     @Column(name = "ORDER_DATE", nullable = false)
