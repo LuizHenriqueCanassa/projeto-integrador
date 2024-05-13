@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface OrderService {
 
+    List<OrderDTO> findAllOrderOpenToday();
+
     List<OrderDTO> findAllOrders();
 
     OrderEntity save(NewOrderDTO newOrderDTO);

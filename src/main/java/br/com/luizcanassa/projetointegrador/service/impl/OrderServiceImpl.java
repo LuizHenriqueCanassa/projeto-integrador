@@ -18,6 +18,9 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.temporal.ChronoField;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -35,6 +38,16 @@ public class OrderServiceImpl implements OrderService {
         this.orderItemRepository = orderItemRepository;
         this.customerRepository = customerRepository;
         this.productRepository = productRepository;
+    }
+
+    @Override
+    public List<OrderDTO> findAllOrderOpenToday() {
+        final var startDate = LocalDateTime.now().toLocalDate().atStartOfDay();
+        final var endDate = LocalDateTime.now().with(ChronoField.NANO_OF_DAY, LocalTime.MAX.toNanoOfDay());
+
+        return orderRepository.
+                getAllBetweenDates(startDate, endDate)
+                .stream().map(this::mapToOrderDTO).collect(Collectors.toList());
     }
 
     @Override
